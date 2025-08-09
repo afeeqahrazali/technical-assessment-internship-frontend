@@ -1,0 +1,17 @@
+<div class="container mt-5" *ngIf="contactForm">
+  <h2>Contact Form (Angular SPA)</h2>
+  <form [formGroup]="contactForm" (ngSubmit)="submit()">
+    <div class="mb-3">
+      <input formControlName="name" class="form-control" placeholder="Name">
+    </div>
+    <div class="mb-3">
+      <input formControlName="email" class="form-control" placeholder="Email">
+    </div>
+    <div class="mb-3">
+      <textarea formControlName="message" class="form-control" rows="4" placeholder="Message"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">
+      Send
+    </button>
+  </form>
+</div>

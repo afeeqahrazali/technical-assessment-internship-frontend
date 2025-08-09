@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="p-4 border rounded bg-light w-100" style="max-width: 400px;">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input id="name" type="text" formControlName="name" class="form-control mt-1" [ngClass]="{'is-invalid': submitted && f['name'].errors}">
+      <div *ngIf="submitted && f['name'].errors && f['name'].errors['required']" class="text-danger mt-1">Name is required.</div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input id="email" type="email" formControlName="email" class="form-control mt-1" [ngClass]="{'is-invalid': submitted && f['email'].errors}">
+      <div *ngIf="submitted && f['email'].errors" class="text-danger mt-1">
+        <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+        <div *ngIf="f['email'].errors && f['email'].errors['email']">Email must be valid.</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Message:</label>
+      <textarea id="message" formControlName="message" class="form-control mt-1" rows="4" [ngClass]="{'is-invalid': submitted && f['message'].errors}"></textarea>
+      <div *ngIf="submitted && f['message'].errors && f['message'].errors['required']" class="text-danger mt-1">Message is required.</div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Submit</button>
+    <div *ngIf="responseMessage" class="alert alert-info mt-3">{{ responseMessage }}</div>
+  </form>
+</div>

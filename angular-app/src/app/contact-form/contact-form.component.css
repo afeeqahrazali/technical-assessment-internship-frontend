@@ -1,0 +1,17 @@
+form .text-danger {
+	color: #dc3545 !important;
+	font-weight: bold;
+}
+form .mb-3 {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+form label {
+	margin-bottom: 0.25rem;
+}
+
+form .form-control {
+	margin-bottom: 0;
+}
